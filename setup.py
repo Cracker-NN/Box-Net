@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 import json
 import os
 
@@ -7,7 +7,7 @@ with open(os.path.join("config", "config.json"), "r") as f:
 
 setup(
     name=data['name'],
-    packages=['PACKAGES'],
+    packages=find_packages(exclude=['network', 'hardware', 'preprocessing', 'reader']),
     version=data['Version'],
     license=data["License"],
     long_description=data["Description"],
